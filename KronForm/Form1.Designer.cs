@@ -170,7 +170,6 @@
             Name = "kronForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Kron Form";
-            Load += Form1_Load;
             gp_searchIP.ResumeLayout(false);
             gp_searchIP.PerformLayout();
             gp_data.ResumeLayout(false);

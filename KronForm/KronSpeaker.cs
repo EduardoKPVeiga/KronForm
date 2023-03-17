@@ -21,8 +21,7 @@ namespace KronForm
                 // If a host has multiple addresses, you will get a list of addresses
 
                 IPHostEntry host = Dns.GetHostEntry("localhost");
-                //IPAddress ipAddress = IPAddress.Parse(_ip.Text);
-                IPAddress ipAddress = host.AddressList[0];
+                IPAddress ipAddress = IPAddress.Parse(_ip.Text);
 
                 IPEndPoint remoteEP = new IPEndPoint(ipAddress, Convert.ToInt32(_port.Text));
 

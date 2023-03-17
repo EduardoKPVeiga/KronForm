@@ -1,7 +1,5 @@
 //using Socket_Cliente;
-using System.Net.Sockets;
-using System.Net;
-using System.Text;
+
 using static KronForm.KronSpeaker;
 
 namespace KronForm
@@ -13,10 +11,6 @@ namespace KronForm
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
         private void ipErrorMsg(TextBox tb_error)
         {
             tb_error.Text = "";
