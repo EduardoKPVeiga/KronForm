@@ -32,6 +32,8 @@
             txt_serialNumder = new Label();
             txt_ipNovo = new Label();
             gp_searchIP = new GroupBox();
+            gp_data = new GroupBox();
+            txt_sendData = new Label();
             btn_confirm = new Button();
             txtbox_port = new TextBox();
             txtbox_newIp = new TextBox();
@@ -39,6 +41,7 @@
             txtbox_ip = new TextBox();
             txt_port = new Label();
             gp_searchIP.SuspendLayout();
+            gp_data.SuspendLayout();
             SuspendLayout();
             // 
             // txt_ip
@@ -70,6 +73,7 @@
             // 
             // gp_searchIP
             // 
+            gp_searchIP.Controls.Add(gp_data);
             gp_searchIP.Controls.Add(btn_confirm);
             gp_searchIP.Controls.Add(txtbox_port);
             gp_searchIP.Controls.Add(txtbox_newIp);
@@ -84,6 +88,24 @@
             gp_searchIP.Size = new Size(440, 340);
             gp_searchIP.TabIndex = 3;
             gp_searchIP.TabStop = false;
+            // 
+            // gp_data
+            // 
+            gp_data.Controls.Add(txt_sendData);
+            gp_data.Location = new Point(6, 161);
+            gp_data.Name = "gp_data";
+            gp_data.Size = new Size(428, 128);
+            gp_data.TabIndex = 9;
+            gp_data.TabStop = false;
+            gp_data.Visible = false;
+            // 
+            // txt_sendData
+            // 
+            txt_sendData.AutoSize = true;
+            txt_sendData.Location = new Point(6, 19);
+            txt_sendData.Name = "txt_sendData";
+            txt_sendData.Size = new Size(0, 15);
+            txt_sendData.TabIndex = 0;
             // 
             // btn_confirm
             // 
@@ -151,6 +173,8 @@
             Load += Form1_Load;
             gp_searchIP.ResumeLayout(false);
             gp_searchIP.PerformLayout();
+            gp_data.ResumeLayout(false);
+            gp_data.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -166,5 +190,7 @@
         private TextBox txtbox_serialNumber;
         private TextBox txtbox_port;
         private Button btn_confirm;
+        private GroupBox gp_data;
+        private Label txt_sendData;
     }
 }
