@@ -81,17 +81,11 @@ namespace KronForm
             {
                 // Connect to a Remote server
                 // Get Host IP Address that is used to establish a connection
-                // In this case, we get one IP address of localhost that is IP : 127.0.0.1
                 // If a host has multiple addresses, you will get a list of addresses
+
                 IPHostEntry host = Dns.GetHostEntry("localhost");
                 //IPAddress ipAddress = IPAddress.Parse(_ip.Text);
                 IPAddress ipAddress = host.AddressList[0];
-
-                /*Byte[] _bytes = ipAddress.GetAddressBytes();
-                for (int i = 0; i < bytes.Length; i++)
-                {
-                    Console.Write(bytes[i]);
-                }*/
 
                 IPEndPoint remoteEP = new IPEndPoint(ipAddress, Convert.ToInt32(_port.Text));
 
@@ -105,9 +99,7 @@ namespace KronForm
                     // Connect to Remote EndPoint
                     sender.Connect(remoteEP);
 
-                    //Console.WriteLine("Socket connected to {0}", sender.RemoteEndPoint.ToString());
-
-                    //_sendData.Text = "Sending data... " + "\n" + _msg;
+                    _sendData.Text = "Sending data... " + "\n" + _msg;
 
                     // Encode the data string into a byte array.
                     byte[] msg = Encoding.ASCII.GetBytes(_msg);
@@ -117,7 +109,6 @@ namespace KronForm
 
                     // Receive the response from the remote device.
                     int bytesRec = sender.Receive(bytes);
-                    //Console.WriteLine("Echoed test = {0}", Encoding.ASCII.GetString(bytes, 0, bytesRec));
 
                     // Release the socket.
                     sender.Shutdown(SocketShutdown.Both);
@@ -150,7 +141,6 @@ namespace KronForm
             {
                 gp_data.Visible = true;
                 string msg = txtbox_newIp.Text + "*";
-                txt_sendData.Text = "Sending data... " + "\n" + msg;
                 StartClient(txtbox_ip, txtbox_port, txt_sendData, msg);
             }
             else
