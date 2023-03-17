@@ -1,0 +1,17 @@
+C:\Users\Hardware 2\source\repos\KronForm\KronForm\bin\Debug\net6.0-windows\KronForm.exe
+C:\Users\Hardware 2\source\repos\KronForm\KronForm\bin\Debug\net6.0-windows\KronForm.deps.json
+C:\Users\Hardware 2\source\repos\KronForm\KronForm\bin\Debug\net6.0-windows\KronForm.runtimeconfig.json
+C:\Users\Hardware 2\source\repos\KronForm\KronForm\bin\Debug\net6.0-windows\KronForm.dll
+C:\Users\Hardware 2\source\repos\KronForm\KronForm\bin\Debug\net6.0-windows\KronForm.pdb
+C:\Users\Hardware 2\source\repos\KronForm\KronForm\obj\Debug\net6.0-windows\KronForm.csproj.AssemblyReference.cache
+C:\Users\Hardware 2\source\repos\KronForm\KronForm\obj\Debug\net6.0-windows\KronForm.kronForm.resources
+C:\Users\Hardware 2\source\repos\KronForm\KronForm\obj\Debug\net6.0-windows\KronForm.csproj.GenerateResource.cache
+C:\Users\Hardware 2\source\repos\KronForm\KronForm\obj\Debug\net6.0-windows\KronForm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hardware 2\source\repos\KronForm\KronForm\obj\Debug\net6.0-windows\KronForm.AssemblyInfoInputs.cache
+C:\Users\Hardware 2\source\repos\KronForm\KronForm\obj\Debug\net6.0-windows\KronForm.AssemblyInfo.cs
+C:\Users\Hardware 2\source\repos\KronForm\KronForm\obj\Debug\net6.0-windows\KronForm.csproj.CoreCompileInputs.cache
+C:\Users\Hardware 2\source\repos\KronForm\KronForm\obj\Debug\net6.0-windows\KronForm.dll
+C:\Users\Hardware 2\source\repos\KronForm\KronForm\obj\Debug\net6.0-windows\refint\KronForm.dll
+C:\Users\Hardware 2\source\repos\KronForm\KronForm\obj\Debug\net6.0-windows\KronForm.pdb
+C:\Users\Hardware 2\source\repos\KronForm\KronForm\obj\Debug\net6.0-windows\KronForm.genruntimeconfig.cache
+C:\Users\Hardware 2\source\repos\KronForm\KronForm\obj\Debug\net6.0-windows\ref\KronForm.dll
