@@ -32,6 +32,7 @@
             txt_serialNumder = new Label();
             txt_ipNovo = new Label();
             gp_searchIP = new GroupBox();
+            btn_clear = new Button();
             gp_data = new GroupBox();
             txt_sendData = new Label();
             btn_confirm = new Button();
@@ -40,6 +41,8 @@
             txtbox_serialNumber = new TextBox();
             txtbox_ip = new TextBox();
             txt_port = new Label();
+            txt_newPort = new Label();
+            txtbox_newPort = new TextBox();
             gp_searchIP.SuspendLayout();
             gp_data.SuspendLayout();
             SuspendLayout();
@@ -73,6 +76,9 @@
             // 
             // gp_searchIP
             // 
+            gp_searchIP.Controls.Add(txtbox_newPort);
+            gp_searchIP.Controls.Add(txt_newPort);
+            gp_searchIP.Controls.Add(btn_clear);
             gp_searchIP.Controls.Add(gp_data);
             gp_searchIP.Controls.Add(btn_confirm);
             gp_searchIP.Controls.Add(txtbox_port);
@@ -89,12 +95,22 @@
             gp_searchIP.TabIndex = 3;
             gp_searchIP.TabStop = false;
             // 
+            // btn_clear
+            // 
+            btn_clear.Location = new Point(246, 311);
+            btn_clear.Name = "btn_clear";
+            btn_clear.Size = new Size(75, 23);
+            btn_clear.TabIndex = 10;
+            btn_clear.Text = "Clear";
+            btn_clear.UseVisualStyleBackColor = true;
+            btn_clear.Click += btn_clear_Click;
+            // 
             // gp_data
             // 
             gp_data.Controls.Add(txt_sendData);
-            gp_data.Location = new Point(6, 161);
+            gp_data.Location = new Point(6, 188);
             gp_data.Name = "gp_data";
-            gp_data.Size = new Size(428, 128);
+            gp_data.Size = new Size(428, 101);
             gp_data.TabIndex = 9;
             gp_data.TabStop = false;
             gp_data.Visible = false;
@@ -102,14 +118,14 @@
             // txt_sendData
             // 
             txt_sendData.AutoSize = true;
-            txt_sendData.Location = new Point(6, 19);
+            txt_sendData.Location = new Point(6, 208);
             txt_sendData.Name = "txt_sendData";
             txt_sendData.Size = new Size(0, 15);
             txt_sendData.TabIndex = 0;
             // 
             // btn_confirm
             // 
-            btn_confirm.Location = new Point(185, 311);
+            btn_confirm.Location = new Point(138, 311);
             btn_confirm.Name = "btn_confirm";
             btn_confirm.Size = new Size(75, 23);
             btn_confirm.TabIndex = 8;
@@ -158,6 +174,23 @@
             txt_port.TabIndex = 3;
             txt_port.Text = "Port";
             // 
+            // txt_newPort
+            // 
+            txt_newPort.AutoSize = true;
+            txt_newPort.Location = new Point(6, 148);
+            txt_newPort.Name = "txt_newPort";
+            txt_newPort.Size = new Size(56, 15);
+            txt_newPort.TabIndex = 11;
+            txt_newPort.Text = "New Port";
+            // 
+            // txtbox_newPort
+            // 
+            txtbox_newPort.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtbox_newPort.Location = new Point(167, 148);
+            txtbox_newPort.Name = "txtbox_newPort";
+            txtbox_newPort.Size = new Size(267, 27);
+            txtbox_newPort.TabIndex = 12;
+            // 
             // kronForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -191,5 +224,8 @@
         private Button btn_confirm;
         private GroupBox gp_data;
         private Label txt_sendData;
+        private Button btn_clear;
+        private Label txt_newPort;
+        private TextBox txtbox_newPort;
     }
 }

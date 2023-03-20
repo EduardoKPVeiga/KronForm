@@ -73,13 +73,23 @@ namespace KronForm
             if (ipCheck(txtbox_ip) && ipCheck(txtbox_newIp))
             {
                 gp_data.Visible = true;
-                string msg = txtbox_newIp.Text + "*";
+                string msg = txtbox_newIp.Text + "&" + txtbox_newPort.Text + "*";
                 StartClient(txtbox_ip, txtbox_port, txt_sendData, msg);
             }
             else
             {
                 gp_data.Visible = false;
             }
+        }
+
+        private void btn_clear_Click(object sender, EventArgs e)
+        {
+            txtbox_ip.Text = "";
+            txtbox_newIp.Text = "";
+            txtbox_port.Text = "";
+            txtbox_serialNumber.Text = "";
+            txtbox_newPort.Text = "";
+            txt_sendData.Text = "";
         }
     }
 }
