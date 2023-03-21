@@ -82,6 +82,7 @@ namespace KronForm
             {
                 gp_data.Visible = false;
             }
+
         }
 
         private void btn_clear_Click(object sender, EventArgs e)
@@ -93,6 +94,20 @@ namespace KronForm
             txtbox_newIpD.Text = "";
             txtbox_newPortD.Text = "";
             txt_sendData.Text = "";
+        }
+
+        private void btn_connect_Click(object sender, EventArgs e)
+        {
+            gp_data.Visible = true;
+            string msg = "1*";
+            StartClient(txtbox_ipM, txtbox_portM, txt_sendData, msg);
+        }
+
+        private void btn_disconnect_Click(object sender, EventArgs e)
+        {
+            gp_data.Visible = true;
+            string msg = "0*";
+            StartClient(txtbox_ipM, txtbox_portM, txt_sendData, msg);
         }
     }
 }

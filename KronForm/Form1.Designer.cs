@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             gp_searchIP = new GroupBox();
+            btn_connect = new Button();
+            btn_disconnect = new Button();
             txtbox_ipD = new TextBox();
             txt_ipD = new Label();
             txtbox_newPortD = new TextBox();
@@ -51,6 +53,8 @@
             // 
             // gp_searchIP
             // 
+            gp_searchIP.Controls.Add(btn_connect);
+            gp_searchIP.Controls.Add(btn_disconnect);
             gp_searchIP.Controls.Add(txtbox_ipD);
             gp_searchIP.Controls.Add(txt_ipD);
             gp_searchIP.Controls.Add(txtbox_newPortD);
@@ -71,6 +75,26 @@
             gp_searchIP.Size = new Size(440, 340);
             gp_searchIP.TabIndex = 3;
             gp_searchIP.TabStop = false;
+            // 
+            // btn_connect
+            // 
+            btn_connect.Location = new Point(278, 311);
+            btn_connect.Name = "btn_connect";
+            btn_connect.Size = new Size(75, 23);
+            btn_connect.TabIndex = 15;
+            btn_connect.Text = "Connect";
+            btn_connect.UseVisualStyleBackColor = true;
+            btn_connect.Click += btn_connect_Click;
+            // 
+            // btn_disconnect
+            // 
+            btn_disconnect.Location = new Point(359, 311);
+            btn_disconnect.Name = "btn_disconnect";
+            btn_disconnect.Size = new Size(75, 23);
+            btn_disconnect.TabIndex = 14;
+            btn_disconnect.Text = "Disconnect";
+            btn_disconnect.UseVisualStyleBackColor = true;
+            btn_disconnect.Click += btn_disconnect_Click;
             // 
             // txtbox_ipD
             // 
@@ -108,7 +132,7 @@
             // 
             // btn_clear
             // 
-            btn_clear.Location = new Point(246, 311);
+            btn_clear.Location = new Point(87, 311);
             btn_clear.Name = "btn_clear";
             btn_clear.Size = new Size(75, 23);
             btn_clear.TabIndex = 7;
@@ -137,7 +161,7 @@
             // 
             // btn_confirm
             // 
-            btn_confirm.Location = new Point(138, 311);
+            btn_confirm.Location = new Point(6, 311);
             btn_confirm.Name = "btn_confirm";
             btn_confirm.Size = new Size(75, 23);
             btn_confirm.TabIndex = 6;
@@ -251,5 +275,7 @@
         private Label txt_sendData;
         private Label txt_ipD;
         private TextBox txtbox_ipD;
+        private Button btn_connect;
+        private Button btn_disconnect;
     }
 }
