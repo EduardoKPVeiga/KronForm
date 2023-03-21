@@ -17,11 +17,13 @@ namespace KronForm
             MessageBox.Show("type a valid IP in: " + tb_error.Name, "ERROR - IP adrees wrong!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private bool ipCheck(TextBox _tb)
+        private bool ipCheck(TextBox _tb, bool _newIp = false)
         {
             int dotQuantity = 0;
             string ip_aux = _tb.Text;
             string[] ip_numbers = new string[4] { "", "", "", "" };
+
+            if (_newIp && _tb.Text == "") return true;
 
             // size test
             if (ip_aux.Length < 7 || ip_aux.Length > 15) { ipErrorMsg(_tb); return false; }
@@ -70,11 +72,11 @@ namespace KronForm
 
         private void btn_confirm_Click(object sender, EventArgs e)
         {
-            if (ipCheck(txtbox_ip) && ipCheck(txtbox_newIp))
+            if (ipCheck(txtbox_ipM) && ipCheck(txtbox_ipD) && ipCheck(txtbox_newIpD, true))
             {
                 gp_data.Visible = true;
-                string msg = txtbox_newIp.Text + "&" + txtbox_newPort.Text + "*";
-                StartClient(txtbox_ip, txtbox_port, txt_sendData, msg);
+                string msg = txtbox_ipD.Text + "$" + txtbox_serialNumberD.Text + "$" + txtbox_newIpD.Text + "$" + txtbox_newPortD.Text + "*";
+                StartClient(txtbox_ipM, txtbox_portM, txt_sendData, msg);
             }
             else
             {
@@ -84,11 +86,12 @@ namespace KronForm
 
         private void btn_clear_Click(object sender, EventArgs e)
         {
-            txtbox_ip.Text = "";
-            txtbox_newIp.Text = "";
-            txtbox_port.Text = "";
-            txtbox_serialNumber.Text = "";
-            txtbox_newPort.Text = "";
+            txtbox_ipM.Text = "";
+            txtbox_portM.Text = "";
+            txtbox_serialNumberD.Text = "";
+            txtbox_ipD.Text = "";
+            txtbox_newIpD.Text = "";
+            txtbox_newPortD.Text = "";
             txt_sendData.Text = "";
         }
     }
