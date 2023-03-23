@@ -1,11 +1,14 @@
 //using Socket_Cliente;
 
 using static KronForm.KronSpeaker;
+using static KronReader.KronListener;
 
 namespace KronForm
 {
     public partial class kronForm : Form
     {
+        public bool confirm = false;
+
         public kronForm()
         {
             InitializeComponent();
@@ -72,10 +75,12 @@ namespace KronForm
 
         private void btn_confirm_Click(object sender, EventArgs e)
         {
-            if (ipCheck(txtbox_ipM) && ipCheck(txtbox_ipD) && ipCheck(txtbox_newIpD, true))
+            txt_receivedData.Visible = false;
+            confirm = true;
+            if (ipCheck(txtbox_yIp) && ipCheck(txtbox_ipM) && ipCheck(txtbox_ipD) && ipCheck(txtbox_newIpD, true))
             {
                 gp_data.Visible = true;
-                string msg = txtbox_ipD.Text + "$" + txtbox_serialNumberD.Text + "$" + txtbox_newIpD.Text + "$" + txtbox_newPortD.Text + "*";
+                string msg = txtbox_yIp.Text + "$" + txtbox_ipD.Text + "$" + txtbox_serialNumberD.Text + "$" + txtbox_newIpD.Text + "$" + txtbox_newPortD.Text + "*";
                 StartClient(txtbox_ipM, txtbox_portM, txt_sendData, msg);
             }
             else
@@ -98,16 +103,30 @@ namespace KronForm
 
         private void btn_connect_Click(object sender, EventArgs e)
         {
-            gp_data.Visible = true;
-            string msg = "1*";
-            StartClient(txtbox_ipM, txtbox_portM, txt_sendData, msg);
+            if (confirm)
+            {
+                gp_data.Visible = true;
+                string msg = "1*";
+                StartClient(txtbox_ipM, txtbox_portM, txt_sendData, msg);
+                string data = StartServer(Convert.ToInt32(txtbox_portM.Text));
+                txt_receivedData.Text = data;
+                txt_receivedData.Visible = true;
+            }
+            else
+                MessageBox.Show("Send your data first - (click confirm).", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btn_disconnect_Click(object sender, EventArgs e)
         {
-            gp_data.Visible = true;
-            string msg = "0*";
-            StartClient(txtbox_ipM, txtbox_portM, txt_sendData, msg);
+            txt_receivedData.Visible = false;
+            if (confirm)
+            {
+                gp_data.Visible = true;
+                string msg = "0*";
+                StartClient(txtbox_ipM, txtbox_portM, txt_sendData, msg);
+            }
+            else
+                MessageBox.Show("Send your data first - (click confirm).", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

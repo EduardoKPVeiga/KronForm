@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             gp_searchIP = new GroupBox();
+            txtbox_yIp = new TextBox();
+            txt_yIp = new Label();
             btn_connect = new Button();
             btn_disconnect = new Button();
             txtbox_ipD = new TextBox();
@@ -47,12 +49,17 @@
             txt_ipM = new Label();
             txt_ipNovoD = new Label();
             txt_serialNumderD = new Label();
+            gp_serverMsg = new GroupBox();
+            txt_receivedData = new Label();
             gp_searchIP.SuspendLayout();
             gp_data.SuspendLayout();
+            gp_serverMsg.SuspendLayout();
             SuspendLayout();
             // 
             // gp_searchIP
             // 
+            gp_searchIP.Controls.Add(txtbox_yIp);
+            gp_searchIP.Controls.Add(txt_yIp);
             gp_searchIP.Controls.Add(btn_connect);
             gp_searchIP.Controls.Add(btn_disconnect);
             gp_searchIP.Controls.Add(txtbox_ipD);
@@ -72,26 +79,43 @@
             gp_searchIP.Controls.Add(txt_serialNumderD);
             gp_searchIP.Location = new Point(12, 12);
             gp_searchIP.Name = "gp_searchIP";
-            gp_searchIP.Size = new Size(440, 340);
+            gp_searchIP.Size = new Size(440, 366);
             gp_searchIP.TabIndex = 3;
             gp_searchIP.TabStop = false;
             // 
+            // txtbox_yIp
+            // 
+            txtbox_yIp.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtbox_yIp.Location = new Point(167, 21);
+            txtbox_yIp.Name = "txtbox_yIp";
+            txtbox_yIp.Size = new Size(267, 27);
+            txtbox_yIp.TabIndex = 0;
+            // 
+            // txt_yIp
+            // 
+            txt_yIp.AutoSize = true;
+            txt_yIp.Location = new Point(6, 21);
+            txt_yIp.Name = "txt_yIp";
+            txt_yIp.Size = new Size(44, 15);
+            txt_yIp.TabIndex = 16;
+            txt_yIp.Text = "Your IP";
+            // 
             // btn_connect
             // 
-            btn_connect.Location = new Point(278, 311);
+            btn_connect.Location = new Point(278, 340);
             btn_connect.Name = "btn_connect";
             btn_connect.Size = new Size(75, 23);
-            btn_connect.TabIndex = 15;
+            btn_connect.TabIndex = 14;
             btn_connect.Text = "Connect";
             btn_connect.UseVisualStyleBackColor = true;
             btn_connect.Click += btn_connect_Click;
             // 
             // btn_disconnect
             // 
-            btn_disconnect.Location = new Point(359, 311);
+            btn_disconnect.Location = new Point(359, 340);
             btn_disconnect.Name = "btn_disconnect";
             btn_disconnect.Size = new Size(75, 23);
-            btn_disconnect.TabIndex = 14;
+            btn_disconnect.TabIndex = 15;
             btn_disconnect.Text = "Disconnect";
             btn_disconnect.UseVisualStyleBackColor = true;
             btn_disconnect.Click += btn_disconnect_Click;
@@ -99,15 +123,15 @@
             // txtbox_ipD
             // 
             txtbox_ipD.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtbox_ipD.Location = new Point(167, 82);
+            txtbox_ipD.Location = new Point(167, 120);
             txtbox_ipD.Name = "txtbox_ipD";
             txtbox_ipD.Size = new Size(267, 27);
-            txtbox_ipD.TabIndex = 2;
+            txtbox_ipD.TabIndex = 3;
             // 
             // txt_ipD
             // 
             txt_ipD.AutoSize = true;
-            txt_ipD.Location = new Point(12, 82);
+            txt_ipD.Location = new Point(6, 120);
             txt_ipD.Name = "txt_ipD";
             txt_ipD.Size = new Size(55, 15);
             txt_ipD.TabIndex = 13;
@@ -116,15 +140,15 @@
             // txtbox_newPortD
             // 
             txtbox_newPortD.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtbox_newPortD.Location = new Point(167, 181);
+            txtbox_newPortD.Location = new Point(167, 219);
             txtbox_newPortD.Name = "txtbox_newPortD";
             txtbox_newPortD.Size = new Size(267, 27);
-            txtbox_newPortD.TabIndex = 5;
+            txtbox_newPortD.TabIndex = 6;
             // 
             // txt_newPort
             // 
             txt_newPort.AutoSize = true;
-            txt_newPort.Location = new Point(6, 181);
+            txt_newPort.Location = new Point(6, 219);
             txt_newPort.Name = "txt_newPort";
             txt_newPort.Size = new Size(94, 15);
             txt_newPort.TabIndex = 11;
@@ -132,7 +156,7 @@
             // 
             // btn_clear
             // 
-            btn_clear.Location = new Point(87, 311);
+            btn_clear.Location = new Point(87, 340);
             btn_clear.Name = "btn_clear";
             btn_clear.Size = new Size(75, 23);
             btn_clear.TabIndex = 7;
@@ -143,7 +167,7 @@
             // gp_data
             // 
             gp_data.Controls.Add(txt_sendData);
-            gp_data.Location = new Point(6, 219);
+            gp_data.Location = new Point(6, 257);
             gp_data.Name = "gp_data";
             gp_data.Size = new Size(428, 70);
             gp_data.TabIndex = 9;
@@ -161,7 +185,7 @@
             // 
             // btn_confirm
             // 
-            btn_confirm.Location = new Point(6, 311);
+            btn_confirm.Location = new Point(6, 340);
             btn_confirm.Name = "btn_confirm";
             btn_confirm.Size = new Size(75, 23);
             btn_confirm.TabIndex = 6;
@@ -172,39 +196,39 @@
             // txtbox_portM
             // 
             txtbox_portM.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtbox_portM.Location = new Point(167, 49);
+            txtbox_portM.Location = new Point(167, 87);
             txtbox_portM.Name = "txtbox_portM";
             txtbox_portM.Size = new Size(267, 27);
-            txtbox_portM.TabIndex = 1;
+            txtbox_portM.TabIndex = 2;
             // 
             // txtbox_newIpD
             // 
             txtbox_newIpD.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtbox_newIpD.Location = new Point(167, 148);
+            txtbox_newIpD.Location = new Point(167, 186);
             txtbox_newIpD.Name = "txtbox_newIpD";
             txtbox_newIpD.Size = new Size(267, 27);
-            txtbox_newIpD.TabIndex = 4;
+            txtbox_newIpD.TabIndex = 5;
             // 
             // txtbox_serialNumberD
             // 
             txtbox_serialNumberD.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtbox_serialNumberD.Location = new Point(167, 115);
+            txtbox_serialNumberD.Location = new Point(167, 153);
             txtbox_serialNumberD.Name = "txtbox_serialNumberD";
             txtbox_serialNumberD.Size = new Size(267, 27);
-            txtbox_serialNumberD.TabIndex = 3;
+            txtbox_serialNumberD.TabIndex = 4;
             // 
             // txtbox_ipM
             // 
             txtbox_ipM.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtbox_ipM.Location = new Point(167, 16);
+            txtbox_ipM.Location = new Point(167, 54);
             txtbox_ipM.Name = "txtbox_ipM";
             txtbox_ipM.Size = new Size(267, 27);
-            txtbox_ipM.TabIndex = 0;
+            txtbox_ipM.TabIndex = 1;
             // 
             // txt_port
             // 
             txt_port.AutoSize = true;
-            txt_port.Location = new Point(6, 49);
+            txt_port.Location = new Point(6, 87);
             txt_port.Name = "txt_port";
             txt_port.Size = new Size(78, 15);
             txt_port.TabIndex = 3;
@@ -213,7 +237,7 @@
             // txt_ipM
             // 
             txt_ipM.AutoSize = true;
-            txt_ipM.Location = new Point(6, 16);
+            txt_ipM.Location = new Point(6, 54);
             txt_ipM.Name = "txt_ipM";
             txt_ipM.Size = new Size(66, 15);
             txt_ipM.TabIndex = 0;
@@ -222,7 +246,7 @@
             // txt_ipNovoD
             // 
             txt_ipNovoD.AutoSize = true;
-            txt_ipNovoD.Location = new Point(6, 148);
+            txt_ipNovoD.Location = new Point(6, 186);
             txt_ipNovoD.Name = "txt_ipNovoD";
             txt_ipNovoD.Size = new Size(82, 15);
             txt_ipNovoD.TabIndex = 2;
@@ -231,18 +255,38 @@
             // txt_serialNumderD
             // 
             txt_serialNumderD.AutoSize = true;
-            txt_serialNumderD.Location = new Point(6, 115);
+            txt_serialNumderD.Location = new Point(6, 153);
             txt_serialNumderD.Name = "txt_serialNumderD";
             txt_serialNumderD.Size = new Size(120, 15);
             txt_serialNumderD.TabIndex = 1;
             txt_serialNumderD.Text = "Serial Number Device";
+            // 
+            // gp_serverMsg
+            // 
+            gp_serverMsg.Controls.Add(txt_receivedData);
+            gp_serverMsg.Location = new Point(458, 12);
+            gp_serverMsg.Name = "gp_serverMsg";
+            gp_serverMsg.Size = new Size(149, 366);
+            gp_serverMsg.TabIndex = 4;
+            gp_serverMsg.TabStop = false;
+            // 
+            // txt_receivedData
+            // 
+            txt_receivedData.AutoSize = true;
+            txt_receivedData.Location = new Point(6, 19);
+            txt_receivedData.Name = "txt_receivedData";
+            txt_receivedData.Size = new Size(81, 15);
+            txt_receivedData.TabIndex = 0;
+            txt_receivedData.Text = "Received Data";
+            txt_receivedData.Visible = false;
             // 
             // kronForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(464, 364);
+            ClientSize = new Size(619, 390);
+            Controls.Add(gp_serverMsg);
             Controls.Add(gp_searchIP);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
@@ -253,6 +297,8 @@
             gp_searchIP.PerformLayout();
             gp_data.ResumeLayout(false);
             gp_data.PerformLayout();
+            gp_serverMsg.ResumeLayout(false);
+            gp_serverMsg.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -277,5 +323,9 @@
         private TextBox txtbox_ipD;
         private Button btn_connect;
         private Button btn_disconnect;
+        private GroupBox gp_serverMsg;
+        private Label txt_receivedData;
+        private Label txt_yIp;
+        private TextBox txtbox_yIp;
     }
 }
