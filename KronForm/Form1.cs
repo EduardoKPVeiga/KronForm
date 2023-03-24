@@ -10,7 +10,8 @@ namespace KronForm
 {
     public partial class kronForm : Form
     {
-        public bool confirm = false;
+        private bool confirm = false;
+        private static List<float> valores = new List<float>();
 
         public kronForm()
         {
@@ -19,6 +20,10 @@ namespace KronForm
 
         private void btn_confirm_Click(object sender, EventArgs e)
         {
+            disableAllBtn(btn_confirm, btn_clear, btn_connect, btn_disconnect, btn_saveData, btn_showData);
+
+            receivedDataVisible(txt_receivedData1, btn_saveData, btn_showData, false);
+
             confirm = true;
             if (ipCheck(txtbox_yIp) && ipCheck(txtbox_ipM) && ipCheck(txtbox_ipD) && ipCheck(txtbox_newIpD, true))
             {
@@ -31,11 +36,14 @@ namespace KronForm
                 gp_data.Visible = false;
             }
 
+            disableAllBtn(btn_confirm, btn_clear, btn_connect, btn_disconnect, btn_saveData, btn_showData, true);
         }
 
         private void btn_clear_Click(object sender, EventArgs e)
         {
-            txt_receivedData1.Visible = false;
+            disableAllBtn(btn_confirm, btn_clear, btn_connect, btn_disconnect, btn_saveData, btn_showData);
+
+            receivedDataVisible(txt_receivedData1, btn_saveData, btn_showData, false);
             txtbox_ipM.Text = "";
             txtbox_portM.Text = "";
             txtbox_serialNumberD.Text = "";
@@ -44,21 +52,25 @@ namespace KronForm
             txtbox_newPortD.Text = "";
             txt_sendData.Text = "";
             txt_receivedData1.Text = "";
+
+            disableAllBtn(btn_confirm, btn_clear, btn_connect, btn_disconnect, btn_saveData, btn_showData, true);
         }
 
         private void btn_connect_Click(object sender, EventArgs e)
         {
+            disableAllBtn(btn_confirm, btn_clear, btn_connect, btn_disconnect, btn_saveData, btn_showData);
+
             if (confirm)
             {
+                clearListData(ref valores);
                 gp_data.Visible = true;
-                txt_receivedData1.Visible = true;
+                cleanReceivedData(ref valores, txt_receivedData1, btn_saveData, btn_showData, true);
+
                 string msg = "1*";
                 string data = "";
                 string extractedData = "";
-                var valores = new List<float>();
 
                 StartClient(txtbox_ipM, txtbox_portM, txt_sendData, msg);
-                txt_receivedData1.Text = "";
 
                 while (extractedData != "end")
                 {
@@ -69,20 +81,24 @@ namespace KronForm
                     }
                 }
                 valores.Reverse();
-                SerializeObjectToXMLFile(valores);
+                Thread.Sleep(500);
                 txt_receivedData1.Text += "Data Lenght: " + valores.Count + "\n";
-                Thread.Sleep(1000);
                 txt_receivedData1.Text += "First item: " + valores[0] + "\n";
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
                 txt_receivedData1.Text += "Disconnected";
             }
             else
                 MessageBox.Show("Send your data first - (click confirm).", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            disableAllBtn(btn_confirm, btn_clear, btn_connect, btn_disconnect, btn_saveData, btn_showData, true);
         }
 
         private void btn_disconnect_Click(object sender, EventArgs e)
         {
-            txt_receivedData1.Text = "";
+            clearListData(ref valores);
+            disableAllBtn(btn_confirm, btn_clear, btn_connect, btn_disconnect, btn_saveData, btn_showData);
+
+            cleanReceivedData(ref valores, txt_receivedData1, btn_saveData, btn_showData);
             if (confirm)
             {
                 gp_data.Visible = true;
@@ -91,6 +107,27 @@ namespace KronForm
             }
             else
                 MessageBox.Show("Send your data first - (click confirm).", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            disableAllBtn(btn_confirm, btn_clear, btn_connect, btn_disconnect, btn_saveData, btn_showData, true);
+        }
+
+        private void btn_showData_Click(object sender, EventArgs e)
+        {
+            disableAllBtn(btn_confirm, btn_clear, btn_connect, btn_disconnect, btn_saveData, btn_showData);
+
+            ShowData f2 = new ShowData(valores);
+            f2.ShowDialog();
+
+            disableAllBtn(btn_confirm, btn_clear, btn_connect, btn_disconnect, btn_saveData, btn_showData, true);
+        }
+
+        private void btn_saveData_Click(object sender, EventArgs e)
+        {
+            disableAllBtn(btn_confirm, btn_clear, btn_connect, btn_disconnect, btn_saveData, btn_showData);
+
+            SerializeObjectToXMLFile(valores);
+
+            disableAllBtn(btn_confirm, btn_clear, btn_connect, btn_disconnect, btn_saveData, btn_showData, true);
         }
     }
 }

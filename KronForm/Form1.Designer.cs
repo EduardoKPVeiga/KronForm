@@ -50,6 +50,8 @@
             txt_ipNovoD = new Label();
             txt_serialNumderD = new Label();
             gp_serverMsg = new GroupBox();
+            btn_saveData = new Button();
+            btn_showData = new Button();
             txt_receivedData1 = new Label();
             gp_searchIP.SuspendLayout();
             gp_data.SuspendLayout();
@@ -263,12 +265,36 @@
             // 
             // gp_serverMsg
             // 
+            gp_serverMsg.Controls.Add(btn_saveData);
+            gp_serverMsg.Controls.Add(btn_showData);
             gp_serverMsg.Controls.Add(txt_receivedData1);
             gp_serverMsg.Location = new Point(458, 12);
             gp_serverMsg.Name = "gp_serverMsg";
             gp_serverMsg.Size = new Size(142, 366);
             gp_serverMsg.TabIndex = 4;
             gp_serverMsg.TabStop = false;
+            // 
+            // btn_saveData
+            // 
+            btn_saveData.Location = new Point(32, 311);
+            btn_saveData.Name = "btn_saveData";
+            btn_saveData.Size = new Size(75, 23);
+            btn_saveData.TabIndex = 2;
+            btn_saveData.Text = "Save Data";
+            btn_saveData.UseVisualStyleBackColor = true;
+            btn_saveData.Visible = false;
+            btn_saveData.Click += btn_saveData_Click;
+            // 
+            // btn_showData
+            // 
+            btn_showData.Location = new Point(32, 340);
+            btn_showData.Name = "btn_showData";
+            btn_showData.Size = new Size(75, 23);
+            btn_showData.TabIndex = 1;
+            btn_showData.Text = "Show Data";
+            btn_showData.UseVisualStyleBackColor = true;
+            btn_showData.Visible = false;
+            btn_showData.Click += btn_showData_Click;
             // 
             // txt_receivedData1
             // 
@@ -327,5 +353,7 @@
         private Label txt_receivedData1;
         private Label txt_yIp;
         private TextBox txtbox_yIp;
+        private Button btn_showData;
+        private Button btn_saveData;
     }
 }

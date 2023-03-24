@@ -68,13 +68,6 @@ namespace KronForm
             return true;
         }
 
-        /*        private void clearReceivedDataTxt(Label _txt_receivedData1, Label _txt_receivedData2, Label _txt_receivedData3)
-                {
-                    _txt_receivedData1.Text = "";
-                    _txt_receivedData2.Text = "";
-                    _txt_receivedData3.Text = "";
-                }*/
-
         public static void receivedData(Label _txt_receivedData1, ref string _data, ref string _extractedData, ref List<float> _valores)
         {
             if (_data == "Connected")
@@ -121,6 +114,38 @@ namespace KronForm
                 {
                     MessageBox.Show(e.ToString(), "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        public static void receivedDataVisible(Label _txt_receivedData1, Button _btn_saveData, Button _btn_showData, bool _visible)
+        {
+            _txt_receivedData1.Visible = _visible;
+            _btn_saveData.Visible = _visible;
+            _btn_showData.Visible = _visible;
+        }
+
+        public static void cleanReceivedData(ref List<float> _valores, Label _txt_receivedData1, Button _btn_saveData, Button _btn_showData, bool _visible = false)
+        {
+            _valores.Clear();
+            _txt_receivedData1.Text = "";
+            receivedDataVisible(_txt_receivedData1, _btn_saveData, _btn_showData, _visible);
+        }
+
+        public static void disableAllBtn(Button _btn_confirm, Button _btn_clear, Button _btn_connect, Button _btn_disconnect, Button _btn_saveData, Button _btn_showData, bool _enable = false)
+        {
+            _btn_confirm.Enabled = _enable;
+            _btn_clear.Enabled = _enable;
+            _btn_connect.Enabled = _enable;
+            _btn_disconnect.Enabled = _enable;
+            _btn_saveData.Enabled = _enable;
+            _btn_showData.Enabled = _enable;
+        }
+
+        public static void clearListData(ref List<float> _valores)
+        {
+            for (int i = _valores.Count - 1; i >= 0; i++)
+            {
+                _valores.RemoveAt(i);
             }
         }
 
