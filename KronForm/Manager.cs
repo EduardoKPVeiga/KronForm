@@ -110,9 +110,8 @@ namespace KronForm
                         _valores.Add(float.Parse(_extractedData));
 
                 }
-                catch (Exception e)
+                catch
                 {
-                    MessageBox.Show(e.ToString(), "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
