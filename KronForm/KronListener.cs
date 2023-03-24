@@ -30,8 +30,8 @@ namespace KronReader
                 // A Socket must be associated with an endpoint using the Bind method
                 listener.Bind(localEndPoint);
                 // Specify how many requests a Socket can listen before it gives Server busy response.
-                // We will listen 10 requests at a time
-                listener.Listen(10);
+                // We will listen 1 request at a time
+                listener.Listen(1);
 
                 Console.WriteLine("Waiting for a connection...");
                 Socket handler = listener.Accept();

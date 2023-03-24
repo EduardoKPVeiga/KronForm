@@ -50,7 +50,7 @@
             txt_ipNovoD = new Label();
             txt_serialNumderD = new Label();
             gp_serverMsg = new GroupBox();
-            txt_receivedData = new Label();
+            txt_receivedData1 = new Label();
             gp_searchIP.SuspendLayout();
             gp_data.SuspendLayout();
             gp_serverMsg.SuspendLayout();
@@ -263,29 +263,29 @@
             // 
             // gp_serverMsg
             // 
-            gp_serverMsg.Controls.Add(txt_receivedData);
+            gp_serverMsg.Controls.Add(txt_receivedData1);
             gp_serverMsg.Location = new Point(458, 12);
             gp_serverMsg.Name = "gp_serverMsg";
-            gp_serverMsg.Size = new Size(149, 366);
+            gp_serverMsg.Size = new Size(142, 366);
             gp_serverMsg.TabIndex = 4;
             gp_serverMsg.TabStop = false;
             // 
-            // txt_receivedData
+            // txt_receivedData1
             // 
-            txt_receivedData.AutoSize = true;
-            txt_receivedData.Location = new Point(6, 19);
-            txt_receivedData.Name = "txt_receivedData";
-            txt_receivedData.Size = new Size(81, 15);
-            txt_receivedData.TabIndex = 0;
-            txt_receivedData.Text = "Received Data";
-            txt_receivedData.Visible = false;
+            txt_receivedData1.AutoSize = true;
+            txt_receivedData1.Location = new Point(6, 19);
+            txt_receivedData1.Name = "txt_receivedData1";
+            txt_receivedData1.Size = new Size(81, 15);
+            txt_receivedData1.TabIndex = 0;
+            txt_receivedData1.Text = "Received Data";
+            txt_receivedData1.Visible = false;
             // 
             // kronForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(619, 390);
+            ClientSize = new Size(606, 390);
             Controls.Add(gp_serverMsg);
             Controls.Add(gp_searchIP);
             FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -324,7 +324,7 @@
         private Button btn_connect;
         private Button btn_disconnect;
         private GroupBox gp_serverMsg;
-        private Label txt_receivedData;
+        private Label txt_receivedData1;
         private Label txt_yIp;
         private TextBox txtbox_yIp;
     }
