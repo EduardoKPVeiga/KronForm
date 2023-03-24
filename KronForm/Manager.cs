@@ -143,7 +143,7 @@ namespace KronForm
 
         public static void clearListData(ref List<float> _valores)
         {
-            for (int i = _valores.Count - 1; i >= 0; i++)
+            for (int i = _valores.Count - 1; i >= 0; i--)
             {
                 _valores.RemoveAt(i);
             }
