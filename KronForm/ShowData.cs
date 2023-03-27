@@ -77,6 +77,7 @@ namespace KronForm
             txtbox_SDea.Text = _valores[54].ToString();
             txtbox_SDer.Text = _valores[55].ToString();
             txtbox_SDean.Text = _valores[56].ToString();
+            txtbox_SDern.Text = _valores[57].ToString();
             txtbox_SDmda.Text = _valores[58].ToString();
             txtbox_SDda.Text = _valores[59].ToString();
             txtbox_SDmds.Text = _valores[60].ToString();

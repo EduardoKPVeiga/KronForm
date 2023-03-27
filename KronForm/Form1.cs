@@ -44,6 +44,7 @@ namespace KronForm
             disableAllBtn(btn_confirm, btn_clear, btn_connect, btn_disconnect, btn_saveData, btn_showData);
 
             receivedDataVisible(txt_receivedData1, btn_saveData, btn_showData, false);
+            txtbox_yIp.Text = "";
             txtbox_ipM.Text = "";
             txtbox_portM.Text = "";
             txtbox_serialNumberD.Text = "";
@@ -81,16 +82,25 @@ namespace KronForm
                     }
                 }
                 valores.Reverse();
-                Thread.Sleep(500);
-                txt_receivedData1.Text += "Data Lenght: " + valores.Count + "\n";
-                txt_receivedData1.Text += "First item: " + valores[0] + "\n";
-                Thread.Sleep(500);
-                txt_receivedData1.Text += "Disconnected";
+                if(valores.Count > 0)
+                {
+                    Thread.Sleep(500);
+                    txt_receivedData1.Text += "Data Lenght: " + valores.Count + "\n";
+                    txt_receivedData1.Text += "First item: " + valores[0] + "\n";
+                    Thread.Sleep(500);
+                    txt_receivedData1.Text += "Disconnected";
+                    disableAllBtn(btn_confirm, btn_clear, btn_connect, btn_disconnect, btn_saveData, btn_showData, true);
+                }
+                else
+                {
+                    txt_receivedData1.Text = "Error\nvalores null!";
+                    disableAllBtn(btn_confirm, btn_clear, btn_connect, btn_disconnect, btn_saveData, btn_showData, true);
+                    btn_saveData.Enabled = false;
+                    btn_showData.Enabled = false;
+                }
             }
             else
                 MessageBox.Show("Send your data first - (click confirm).", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            disableAllBtn(btn_confirm, btn_clear, btn_connect, btn_disconnect, btn_saveData, btn_showData, true);
         }
 
         private void btn_disconnect_Click(object sender, EventArgs e)
